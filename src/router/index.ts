@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import BlogIndex from "@/views/blog/index.vue";
+import BlogLayout from "@/views/blog/Layout.vue";
 import BlogRoutes from "./blog"
 
 const router = createRouter({
@@ -7,8 +7,8 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: BlogIndex,
+      name: 'blog',
+      component: BlogLayout,
       children: BlogRoutes
     },
     // {
