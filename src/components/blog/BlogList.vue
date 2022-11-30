@@ -15,6 +15,13 @@
             </div>
         </div>
 
+
+        <div v-if="isLoading" class="articles">
+            <div class="card-wrapper">
+                <ArticleLoader v-for="(_, index) in $props.perPage" :key="index"/>
+            </div>
+        </div>
+
         <div v-if="items.length > 0" >
             <button :disabled="isLoading" @click="loadMore" v-if="paginate" class="btn">Load More</button>
         </div>
@@ -27,6 +34,7 @@ import { useBlog } from "@/composables/useBlog";
 import BlogCard from '@/components/blog/Card.vue';
 import ErrorMessage from './ErrorMessage.vue';
 import BannerHeader from './BannerHeader.vue';
+import ArticleLoader from '../loaders/ArticleLoader.vue';
 
 export default defineComponent({
     props: {
@@ -70,7 +78,7 @@ export default defineComponent({
             loadMore
         };
     },
-    components: { BlogCard, ErrorMessage, BannerHeader }
+    components: { BlogCard, ErrorMessage, BannerHeader, ArticleLoader }
 })
 </script>
 
