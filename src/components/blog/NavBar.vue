@@ -1,11 +1,11 @@
 <template>
-    <div id="navbar">
+    <div class="max-width" id="navbar">
         <!-- Blog Logo -->
-        <div><img src="../../assets/logo.svg" alt="blog-logo"/></div>
+        <div><router-link to="/"><img class="logo" src="../../assets/logo.svg" alt="blog-logo" /></router-link></div>
 
         <!-- Blog Socials -->
         <div class="socials">
-            <ul>
+            <ul class="socials-ul">
                 <li><a href=""><img src="../../assets/socials/dribbble.svg" /></a></li>
                 <li><a href=""><img src="../../assets/socials/twitter.svg" /></a></li>
                 <li><a href=""><img src="../../assets/socials/vector.svg" /></a></li>
@@ -18,12 +18,32 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-    
+
 });
 </script>
 
 <style lang="scss">
     #navbar {
-        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .socials-ul {
+            display: flex;
+            li{
+                list-style: none;
+                padding: 10px;
+
+                :hover{
+                    color: #9747ff;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 400px) {
+        .logo{
+            width: 60px;
+        }
     }
 </style>

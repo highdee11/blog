@@ -1,1 +1,139 @@
-body{}
+@font-face {
+    font-family: sf-pro-regular;
+    src: url('../assets/fonts/SpProText/SF-Pro-Text-Regular.otf');
+}
+
+@font-face {
+    font-family: sf-pro-medium;
+    src: url('../assets/fonts/SpProText/SFPRODISPLAYMEDIUM.OTF');
+}
+
+@font-face {
+    font-family: sf-pro-bold;
+    src: url('../assets/fonts/SpProText/SFPRODISPLAYBOLD.OTF');
+}
+
+@font-face {
+    font-family: sf-pro-light;
+    src: url('../assets/fonts/SpProText/SF-Pro-Text-Light.otf');
+}
+
+@font-face {
+    font-family: sf-pro-semiBold;
+    src: url('../assets/fonts/SpProText/SF-Pro-Text-Semibold.otf');
+}
+
+@font-face {
+    font-family: playFairRegular;
+    src: url('../assets/fonts/PlayfairDisplay-Bold.ttf');
+}
+
+p,
+a,
+span,
+div,
+li {
+    font-family: sf-pro-light;
+}
+
+.max-width {
+    width: 90%;
+    margin: auto;
+    max-width: 1500px;
+}
+
+@media (max-width: 760px) {
+    .max-width {
+        width: 97%;
+    }
+}
+
+.text {
+    color: #6E6E6E;
+    line-height: 23px;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.mini-time {
+    font-family: sf-pro-regular;
+    color: #6E6E6E;
+    font-size: 15px;
+}
+
+.read-full-wrap {
+    display: flex;
+    justify-content: space-between;
+
+    .rf-time {
+        color: #6E6E6E;
+        font-size: 15px;
+        font-family: sf-pro-regular;
+    }
+
+    a {
+        text-decoration: none;
+        color: #1473E6;
+        display: flex;
+        align-items: center;
+
+        span {
+            font-family: sf-pro-semiBold;
+            font-size: 14px;
+        }
+
+        :hover {
+            color: #1473e691;
+        }
+    }
+}
+
+.articles {
+    margin-bottom: 70px;
+
+    .card-wrapper {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        gap: 80px;
+
+
+    }
+
+    @media (max-width: 1300px) {
+        #blogs {
+            .card-wrapper {
+                gap: 30px;
+            }
+
+        }
+    }
+
+    @media (max-width: 1000px) {
+        .card-wrapper {
+            gap: 30px;
+            grid-template-columns: auto auto;
+        }
+
+    }
+
+    @media (max-width: 600px) {
+        .card-wrapper {
+            display: block;
+        }
+
+        .card {
+            margin: auto;
+            margin-bottom: 20px;
+        }
+    }
+}
+
+.mty {
+    margin: 50px auto;
+}
+
+.details-title {
+    margin-top: 70px;
+    font-family: sf-pro-bold;
+    font-size: 24px;
+}

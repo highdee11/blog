@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import BlogLayout from "@/views/blog/Layout.vue";
+import BlogLayout from "@/views/Layout.vue";
 import BlogRoutes from "./blog"
 
 const router = createRouter({
