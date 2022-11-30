@@ -2,31 +2,21 @@
     <div id="banner">
         <div class="banner-inner">
             <div class="orange-bg">
-                <img src="../../assets/images/rocket.png" alt="jet-image" />
-                <h1>Optimizing CSS for faster <br/> page loads </h1>
-                <!-- <div></div> -->
+                <img :src="item.jetpack_featured_media_url" alt="image" />
             </div>
             <div class="text-wrapper"> 
                 <div>
-                    <span class="mini-text">Front-end</span>
+                    <span class="mini-text" v-html="item.primary_category.name"></span>
                     <span class="mini-time "> . </span>
-                    <span class="mini-time">1 Hour Ago</span>
+                    <span class="mini-time">{{ dateTimeDiff(item.date) }}</span>
                 </div>
-                <h2>Optimizing CSS for faster page loads </h2>
-                <p class="text">
-                    Not long ago I decided to improve the loading times of my website. It already loads pretty fast, 
-                    but I knew there was still room for improvement and one of them was CSS loading. 
-                    I will walk you through the process and show you how you can improve your load times as well.
-                </p>
-                <p class="text">
-                    To see how CSS affects the load time of a webpage we first have to know how the browser converts an HTML document into a functional webpage...
-                </p>
+                <div class="content">
+                    <h2 v-html="item.title.rendered"></h2>
+                    <p class="text" v-html="item.excerpt.rendered"> </p>
+                </div>
                 <div class="read-full-wrap">
                     <span class="rf-time">3 Min Read</span>
-                    <a href="">
-                        <span>Read Full</span>
-                        <img src="../../assets/images/arrow.svg" alt="read-more-arrow" />
-                    </a>
+                    <NavigatorLink :id="item.id" :slug="item.slug"/>
                 </div>
             </div>
         </div>
@@ -34,17 +24,33 @@
     </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { computed, defineComponent, type PropType } from 'vue';
+import { dateTimeDiff } from "@/core/helpers/date";
+import type Article from '@/core/models/Article';
+import NavigatorLink from './NavigatorLink.vue';
 
 export default defineComponent({
-
+    props: {
+        item: {
+            type: Object as PropType<Article>,
+            required: true
+        }
+    },
+    setup(props) {
+        const item = computed(() => props.item);
+        return {
+            item,
+            dateTimeDiff
+        };
+    },
+    components: { NavigatorLink }
 });
 </script>
 
 <style lang="scss" scoped>
-
     #banner {
-        padding-top: 70px;
+        margin-bottom: 70px;
+
         .banner-inner{
             border: 1px solid #F5F5F5;
             padding: 10px;
@@ -54,20 +60,6 @@ export default defineComponent({
             grid-template-columns: 40% auto;
           
             .orange-bg {
-                position: relative;
-                background-color: #EF5623;
-                // height: 500px;
-                padding: 30px;
-
-                // div{
-                //     background-image: url('../../assets/images/Vector.png');
-                //     height: 268px;
-                //     width: 326px;
-                //     position: absolute;
-                //     right: 0;
-                //     bottom: 0;
-                //     z-index: 5;
-                // }
 
                 h1{
                     font-family: playFairRegular;
@@ -75,18 +67,28 @@ export default defineComponent({
                     font-size: 33px;
                     z-index: 10;
                     position: relative;
-                }
-                
-                img{
-                    padding-top: 53px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                } 
+
+                img {
+                    width: 100%;
+                    height: 100%;
                 }
             }
         
 
             .text-wrapper{
-                
                 padding: 8px 0px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
 
+                .content {
+                    height: 200px;
+                    overflow: hidden;
+                }
                 .mini-text{
                     font-family: sf-pro-semiBold;
                     color: #4B4B4B;
@@ -125,23 +127,22 @@ export default defineComponent({
             }
         }
         @media (max-width: 500px) {
-           
-                .banner-inner {
-                    .text-wrapper {
-                        h2 {
-                            font-size: 24px !important;
-                        }
+            .banner-inner {
+                .text-wrapper {
+                    h2 {
+                        font-size: 24px !important;
                     }
                 }
-                .orange-bg {
-                    h1 {
-                        font-size: 27px !important;
-                    }
-                    div {
-                        height: 236px !important;
-                        width: 258px !important;
-                    }
-                } 
+            }
+            .orange-bg {
+                h1 {
+                    font-size: 27px !important;
+                }
+                div {
+                    height: 236px !important;
+                    width: 258px !important;
+                }
+            } 
         }
     }
 </style>

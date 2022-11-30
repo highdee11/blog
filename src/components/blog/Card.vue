@@ -6,40 +6,41 @@
         </div>
         <div class="card-body">
             <div class="crd-sub-head">
-                <span class="mini-time crd-mt">{{item.primary_category.name}}</span>
+                <span class="mini-time crd-mt" v-html="item.primary_category.name"></span>
                 <span class="mini-time "> . </span>
-                <span class="mini-time">{{item.date}} </span>
+                <span class="mini-time">{{ dateTimeDiff(item.date) }} </span>
             </div>
             <h5 class="card-title" v-html="item.title.rendered"></h5>
             <p class="text" v-html="item.excerpt.rendered"></p>
         </div>
         <div class="card-footer read-full-wrap">
-            <span class="rf-time">{{}}</span>
-            <router-link :to="{name:'blog.view', params:{id:item.id}}">
-                <span>Read Full</span>
-                <img src="../../assets/images/arrow.svg" alt="read-more-arrow" />
-            </router-link>
+            <span class="rf-time">{{5}} mins</span>
+            <NavigatorLink :id="item.id" :slug="item.slug"/>
         </div>
     </div>
 </template>
 <script lang="ts">
 import type Article from '@/core/models/Article';
 import { computed, defineComponent, type PropType } from 'vue';
+import { dateTimeDiff } from "@/core/helpers/date";
+import type NavigatorVue from './NavigatorLink.vue';
+import NavigatorLink from './NavigatorLink.vue';
 
 export default defineComponent({
-    props:{
-        item:{
+    props: {
+        item: {
             type: Object as PropType<Article>,
             required: true
         }
     },
-    setup(props){
-        const item = computed(()=>props.item);
+    setup(props) {
+        const item = computed(() => props.item);
         return {
-            item
-        }
-    }
-
+            item,
+            dateTimeDiff
+        };
+    },
+    components: { NavigatorLink }
 });
 </script>
 

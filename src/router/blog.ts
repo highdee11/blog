@@ -8,7 +8,7 @@ export default [
         component: BlogList
     },
     {
-        path: '/view/:id',
+        path: '/view/:id/:title',
         name: 'blog.view',
         component: BlogView
     },
