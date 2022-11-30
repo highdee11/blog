@@ -9,14 +9,13 @@
             :item="featured"
         />
 
-        <div class="articles">
+        <div v-if="!isLoading" class="articles">
             <div class="card-wrapper">
                 <BlogCard v-for="(blog, idx) in items" :key="idx" :item="blog" />
             </div>
         </div>
 
-
-        <div v-if="isLoading" class="articles">
+        <div v-else class="articles">
             <div class="card-wrapper">
                 <ArticleLoader v-for="(_, index) in $props.perPage" :key="index"/>
             </div>
