@@ -1,9 +1,7 @@
 <template>
     <!-- Single Blog -->
     <div class="card">
-        <div class="card-img">
-            <img class="" :src="item.jetpack_featured_media_url" alt="blog-image" />
-        </div>
+        <img class="card-img" :src="item.jetpack_featured_media_url" alt="blog-image" />
         <div class="card-body">
             <div class="crd-sub-head">
                 <span class="mini-time crd-mt" v-html="item.primary_category.name"></span>

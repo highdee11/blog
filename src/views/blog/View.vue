@@ -19,7 +19,7 @@
         </div>
         <!-- Articles -->
         <h2 class="details-title">More Articles</h2>
-        <BlogList :paginate="false" :per-page="3" />
+        <BlogList :paginate="false" :per-page="3" :exclude="articleId"/>
     </div>
 </template>
 <script lang="ts"> 
@@ -38,11 +38,12 @@ export default defineComponent({
     setup() {
 
         const route = useRoute();
+        const articleId: number = route.params.id as unknown as number;
         const { article, getArticle, hasError, errorMessage, isLoading  }  = useBlog();
         
 
         onMounted(()=>{
-            getArticle(route.params.id as unknown as number)
+            getArticle( articleId )
         });
         
 
@@ -51,6 +52,7 @@ export default defineComponent({
             hasError,
             isLoading,
             errorMessage,
+            articleId,
             dateTimeDiff
         }
     }

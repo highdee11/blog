@@ -1,6 +1,6 @@
 <template>
     <div class="max-width">
-        <BlogList :paginate="true" :per-page="10" :show-featured="true" />
+        <BlogList :paginate="true" :per-page="9" :show-featured="true" />
         <JoinUs />
     </div>
   </template>

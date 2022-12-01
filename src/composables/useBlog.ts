@@ -11,7 +11,7 @@ interface UsableBlog {
     perPage: Ref<number>,
     hasError: Ref<boolean>,
     errorMessage: Ref<string|null>,
-    getArticles: (perPage: number, page: number)=> void;
+    getArticles: (perPage: number, page: number, exclude?: number)=> void;
     getArticle: (id: number)=> void;
 }
 
@@ -42,14 +42,18 @@ export const useBlog = (): UsableBlog => {
         }
     }
     
-    const getArticles = async (max?:number, page?:number)=>{
+    const getArticles = async (max?:number, page?:number, exclude?: number)=>{
         hasError.value = false;
         try{
             max = max ?? perPage.value;
-            page = page ?? currentPage.value;
+            page = page ?? currentPage.value; 
 
             isLoading.value = true;
-            const response = await NetworkService.get(`${API.GET_POST}?per_page=${max}&page=${page}`);
+            let endpoint = `${API.GET_POST}?per_page=${max}&page=${page}`;
+            if(exclude){
+                endpoint += `&exclude=${exclude}`;
+            }
+            const response = await NetworkService.get(endpoint);
             const temp = response.data as Article[];
             articles.value = [...articles.value, ...temp];
             
