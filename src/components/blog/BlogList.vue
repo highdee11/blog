@@ -82,15 +82,5 @@ export default defineComponent({
 </script>
 
 <style lang="scss">
-.btn{
-    background: #000000;
-    color: white;
-    text-decoration: none;
-    padding: 12px 40px;
-    font-size: 14px;
-    border: none;
-    border-radius: 2px;
-    margin: auto;
-    display: block;
-}
+
 </style>

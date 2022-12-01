@@ -1,17 +1,17 @@
 <template>
     <div class="max-width">
         <BlogList :paginate="true" :per-page="10" :show-featured="true" />
-        <FooterVue />
+        <JoinUs />
     </div>
   </template>
 <script lang="ts">
-import FooterVue from '@/components/blog/Footer.vue'; 
 import { defineComponent, onMounted, reactive } from 'vue';
 import BlogList from '@/components/blog/BlogList.vue';
+import JoinUs from '@/components/blog/JoinUs.vue';
 
   
 export default defineComponent({
-    components: { FooterVue, BlogList },
+    components: { BlogList, JoinUs  },
     setup() { 
         
         return {
