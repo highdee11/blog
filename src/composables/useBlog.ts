@@ -36,7 +36,7 @@ export const useBlog = (): UsableBlog => {
                 article.value = response.data as Article; 
             }
             isLoading.value = false;
-        }catch(e){
+        }catch(e:any){
             hasError.value = true;
             errorMessage.value = e.response?.data.message;
         }
@@ -55,7 +55,7 @@ export const useBlog = (): UsableBlog => {
             
             currentPage.value = page;
             isLoading.value = false;
-        }catch(e){
+        }catch(e:any){
             hasError.value = true;
             errorMessage.value = e.response?.data.message;
         }

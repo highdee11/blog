@@ -50,7 +50,7 @@ export default defineComponent({
                 const flutterWaveService = new FlutterWaveService(publicKey, config);
 
                 //checkout with flutterwaveService instance
-                const response: FlutterwaveResponse = await flutterWaveService.checkout();
+                const response: FlutterwaveResponse|null = await flutterWaveService.checkout();
     
                 //check if payment was successful
                 if(response?.status == "successful"){

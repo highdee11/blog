@@ -1,4 +1,4 @@
-import type { AxiosResponse, AxiosRequestConfig, AxiosInstance } from "axios";
+import type { AxiosResponse, AxiosRequestConfig, AxiosInstance,  } from "axios";
 import axios from "axios";
 
 axios.defaults.headers.common["Accept"] = "application/json";
@@ -11,6 +11,7 @@ export default class NetworkService {
      * @param resource: string
      * @returns Promise<AxiosResponse>
      */
+    
     public static async get(
       resource: string,
     ): Promise<AxiosResponse> {

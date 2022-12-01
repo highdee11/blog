@@ -1,5 +1,4 @@
-import  "@/assets/js/checkout.js";
-
+declare var FlutterwaveCheckout:any
 
 export interface FlutterWavePaymentConfig {
     amount: number;
@@ -39,8 +38,8 @@ export default class FlutterWaveService {
         this.config = config
     }
 
-    public checkout = async (): Promise<FlutterwaveResponse> => {
-       return new Promise<FlutterwaveResponse>((resolve, reject)=> {
+    public checkout = async (): Promise<FlutterwaveResponse|null> => {
+       return new Promise<FlutterwaveResponse|null>((resolve, reject)=> {
             let response: FlutterwaveResponse|null;
 
             const modal = FlutterwaveCheckout({
