@@ -11,7 +11,7 @@
                     <span class="mini-time">{{ dateTimeDiff(item.date) }}</span>
                 </div>
                 <div class="content">
-                    <h2 v-html="item.title.rendered"></h2>
+                    <h1 v-html="item.title.rendered"></h1>
                     <p class="text" v-html="item.excerpt.rendered"> </p>
                 </div>
                 <div class="read-full-wrap">
@@ -59,19 +59,7 @@ export default defineComponent({
             column-gap: 20px;
             grid-template-columns: 40% auto;
           
-            .orange-bg {
-
-                h1{
-                    font-family: playFairRegular;
-                    color: white;
-                    font-size: 33px;
-                    z-index: 10;
-                    position: relative;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                } 
-
+            .orange-bg { 
                 img {
                     width: 100%;
                     height: 100%;
@@ -94,7 +82,7 @@ export default defineComponent({
                     color: #4B4B4B;
                 }
 
-                h2{
+                h1{
                     font-family: sf-pro-bold;
                     font-size: 30px;
                     margin: 12px 0px;
@@ -129,15 +117,12 @@ export default defineComponent({
         @media (max-width: 500px) {
             .banner-inner {
                 .text-wrapper {
-                    h2 {
+                    h1 {
                         font-size: 24px !important;
                     }
                 }
             }
             .orange-bg {
-                h1 {
-                    font-size: 27px !important;
-                }
                 div {
                     height: 236px !important;
                     width: 258px !important;
