@@ -21,9 +21,9 @@
             </div>
         </div>
 
-        <!-- <div v-if="items.length > 0 && !isLoading" >
+        <div v-if="items.length > 0 && !isLoading" >
             <button :disabled="isLoading" @click="loadMore" v-if="paginate" class="btn">Load More</button>
-        </div> -->
+        </div>
     </div>
 </template>
 
