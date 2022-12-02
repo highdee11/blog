@@ -9,13 +9,13 @@
             :item="featured"
         />
 
-        <div v-if="!isLoading" class="articles">
+        <div  class="articles">
             <div class="card-wrapper">
-                <BlogCard v-for="(blog, idx) in items" :key="idx" :item="blog" />
+                    <BlogCard  v-for="(blog, idx) in items" :key="idx" :item="blog" />
             </div>
         </div>
 
-        <div v-else class="articles">
+        <div v-if="isLoading" class="articles">
             <div class="card-wrapper">
                 <ArticleLoader v-for="(_, index) in $props.perPage" :key="index"/>
             </div>
@@ -37,18 +37,10 @@ import ArticleLoader from '../loaders/ArticleLoader.vue';
 
 export default defineComponent({
     props: {
-        paginate: {
-            type: Boolean,
-            required: true
-        },
-        showFeatured:{
-            type: Boolean,
-            default: false
-        },
-        perPage: {
-            type: Number,
-            default: 10
-        }
+        paginate: {type: Boolean, required: true},
+        showFeatured:{type: Boolean, default: false},
+        perPage: {type: Number, default: 9},
+        exclude: {type: Number, required: false},
     },
     setup(props) {
         const { 
@@ -60,7 +52,8 @@ export default defineComponent({
         const items = computed(()=> articles.value.slice(props.showFeatured ? 1:0))
 
         onMounted(() => {
-            getArticles(props.perPage, 1);
+            const perPage = props.perPage + (props.showFeatured ? 1:0)
+            getArticles(perPage, 1, props.exclude);
         });
 
 
