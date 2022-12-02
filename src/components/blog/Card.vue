@@ -47,22 +47,24 @@ export default defineComponent({
     border: 1px solid #F5F5F5;
     padding: 10px;
     border-radius: 5px;
-    max-width: 420px;
+    max-width: 400px;
 
     .card-img {
         width: 100%;
         height: 230px;
+        object-fit: cover;
+        object-position: center;
 
         img{
             width: 100%;
             height: 100%;
+            
         }
     }
 
     .card-body {
         height: 172px;
         overflow: hidden;
-        text-overflow: ellipsis;
     }
 
     .crd-sub-head {
@@ -78,13 +80,15 @@ export default defineComponent({
         color: #2c2c2c;
         margin: 10px 0 0;
         font-size: 20px;
-        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        display: -webkit-box;
     }
 
     .text {
-        margin-top: 5px;
+        margin-top: 0px;
     }
 
     .card-footer {

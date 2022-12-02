@@ -31,10 +31,9 @@ export default defineComponent({
     display: block;
     background: #fbfbfb;
     height: 410px;
-    width: 400px;
+    max-width: 400px;
     border-radius: 5px;
-    padding: 20px;
-    margin: 20px auto;
+    padding: 20px; 
 
     .img-content {
         display: block;
