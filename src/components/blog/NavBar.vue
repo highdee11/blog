@@ -27,6 +27,7 @@ export default defineComponent({
         display: flex;
         justify-content: space-between;
         align-items: center;
+        margin-top: 5px;
 
         .socials-ul {
             display: flex;

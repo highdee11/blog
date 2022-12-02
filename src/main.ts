@@ -7,6 +7,7 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
 import './assets/main.scss'
+import "normalize.css"
 
 const app = createApp(App)
 
