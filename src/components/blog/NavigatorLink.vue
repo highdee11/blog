@@ -5,9 +5,7 @@
     </router-link>
 </template>
 <script lang="ts">
-import type Article from '@/core/models/Article';
-import { computed, defineComponent, type PropType } from 'vue';
-import { dateTimeDiff } from "@/core/helpers/date";
+import { defineComponent } from 'vue';
 
 export default defineComponent({
     props:{
