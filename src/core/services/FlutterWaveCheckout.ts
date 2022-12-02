@@ -1,3 +1,5 @@
+import "@/assets/js/checkout.js"
+
 declare var FlutterwaveCheckout:any
 
 export interface FlutterWavePaymentConfig {
