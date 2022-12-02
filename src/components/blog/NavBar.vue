@@ -7,8 +7,8 @@
         <div class="socials">
             <ul class="socials-ul">
                 <li><a href=""><img src="../../assets/socials/dribbble.svg" /></a></li>
-                <li><a href=""><img src="../../assets/socials/twitter.svg" /></a></li>
-                <li><a href=""><img src="../../assets/socials/vector.svg" /></a></li>
+                <li><a href=""><img src="../../assets/socials/Twitter.svg" /></a></li>
+                <li><a href=""><img src="../../assets/socials/Vector.svg" /></a></li>
                 <li><a href=""><img src="../../assets/socials/figma.svg" /></a></li>
             </ul>
         </div>
