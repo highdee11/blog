@@ -44,6 +44,8 @@ export default defineComponent({
 
         onMounted(()=>{
             getArticle( articleId )
+
+            window.scrollTo(0,0)
         });
         
 
@@ -61,6 +63,12 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 #details {
+    animation: adjust .2s linear;
+
+    @keyframes adjust {
+        0% { transform: scale(1.2) }
+        100% { transform: scale(1); }
+    }
     .details-wrapper {
         width: 850px;
         margin: auto;

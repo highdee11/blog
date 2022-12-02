@@ -48,6 +48,12 @@ export default defineComponent({
     padding: 10px;
     border-radius: 5px;
     max-width: 400px;
+    animation: adjust .2s linear;
+
+    @keyframes adjust {
+        0% { transform: scale(1.2) }
+        100% { transform: scale(1); }
+    }
 
     .card-img {
         width: 100%;

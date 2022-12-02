@@ -50,6 +50,12 @@ export default defineComponent({
 <style lang="scss" scoped>
     #banner {
         margin-bottom: 70px;
+        animation: adjust .2s linear;
+
+        @keyframes adjust {
+            0% { transform: scale(1.2) }
+            100% { transform: scale(1); }
+        }
 
         .banner-inner{
             border: 1px solid #F5F5F5;
