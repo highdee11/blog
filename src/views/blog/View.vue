@@ -8,7 +8,7 @@
             <ArticleDetailsLoader v-if="isLoading" />
             <div v-else class="details-wrapper">
                 <div class="author">
-                    <span v-html="article?.primary_category.name"></span> - 
+                    <span v-html="article?.primary_category?.name"></span> - 
                     <span class="textlight"> {{ dateTimeDiff(article?.date) }} </span>
                 </div>
                 <h2 class="details-title" v-html="article?.title.rendered"></h2>
@@ -18,13 +18,13 @@
             </div>
         </div>
         <!-- Articles -->
-        <h2 class="details-title">More Articles</h2>
-        <BlogList :paginate="false" :per-page="3" :exclude="articleId"/>
+        <h2 class="details-title">More Articles</h2> 
+        <BlogList :paginate="false" :per-page="3" :exclude="parseInt(articleId.toString())"/>
     </div>
 </template>
 <script lang="ts"> 
 
-import { defineComponent, onMounted, reactive } from 'vue';
+import { defineComponent, onMounted, computed } from 'vue';
 import BlogCard from '@/components/blog/Card.vue';
 import { useBlog } from "@/composables/useBlog"
 import { useRoute } from "vue-router"
@@ -38,14 +38,15 @@ export default defineComponent({
     setup() {
 
         const route = useRoute();
-        const articleId: number = route.params.id as unknown as number;
+        const articleId = computed(()=> route.params.id as unknown as number);
         const { article, getArticle, hasError, errorMessage, isLoading  }  = useBlog();
         
 
         onMounted(()=>{
-            getArticle( articleId )
+            getArticle( articleId.value )
 
             window.scrollTo(0,0)
+ 
         });
         
 

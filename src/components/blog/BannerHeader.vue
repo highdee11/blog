@@ -6,7 +6,7 @@
             </div>
             <div class="text-wrapper"> 
                 <div>
-                    <span class="mini-text" v-html="item.primary_category.name"></span>
+                    <span class="mini-text" v-html="item.primary_category?.name"></span>
                     <span class="mini-time "> . </span>
                     <span class="mini-time">{{ dateTimeDiff(item.date) }}</span>
                 </div>

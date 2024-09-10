@@ -4,7 +4,7 @@
         <img class="card-img" :src="item.jetpack_featured_media_url" alt="blog-image" />
         <div class="card-body">
             <div class="crd-sub-head">
-                <span class="mini-time crd-mt" v-html="item.primary_category.name"></span>
+                <span class="mini-time crd-mt" v-html="item.primary_category?.name"></span>
                 <span class="mini-time "> . </span>
                 <span class="mini-time">{{ dateTimeDiff(item.date) }} </span>
             </div>
